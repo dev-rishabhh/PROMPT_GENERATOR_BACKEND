@@ -17,7 +17,7 @@ app.use((err,req,res,next)=>{
  })
 
 app.use(cors({
-   origin:"http://localhost:5173",
+   origin:"https://prompt-generator-frontend-kcak.onrender.com/",
    credentials:true,
 }
 ))
