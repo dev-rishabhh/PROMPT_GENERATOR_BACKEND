@@ -17,7 +17,7 @@ app.use((err,req,res,next)=>{
  })
 
 app.use(cors({
-   origin:"https://prompt-generator-frontend-kcak.onrender.com/",
+   origin:"https://prompt-generator-frontend-kcak.onrender.com",
    credentials:true,
 }
 ))
