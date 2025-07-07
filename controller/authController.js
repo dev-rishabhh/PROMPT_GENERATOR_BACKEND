@@ -105,12 +105,13 @@ export const loginWithGoogle = async (req, res, next) => {
             name,
             email,
         })
+
         const cookiePayload = JSON.stringify({
             id: newUser._id.toString(),
             expiry: Math.round(Date.now() / 1000 + 100000),
         });
-
-
+        console.log(cookiePayload);
+        
         res.cookie("token", Buffer.from(cookiePayload).toString("base64url"), {
             httpOnly: true,
             signed: true,
