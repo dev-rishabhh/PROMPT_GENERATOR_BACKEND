@@ -50,14 +50,13 @@ export async function handleLogin(req, res) {
         res.cookie("token", Buffer.from(cookiePayload).toString("base64url"), {
             httpOnly: true,
             signed: true,
+            sameSite:"strict",
             maxAge: 60 * 1000 * 60 * 24 * 7,
         });  
         
 
         return res.status(200).json({
             message: "login sucessfull",
-            user:foundUser,
-            cookie:Buffer.from(cookiePayload).toString("base64url")
         })
 
     } catch (err) {
@@ -94,6 +93,7 @@ export const loginWithGoogle = async (req, res, next) => {
         res.cookie("token", Buffer.from(cookiePayload).toString("base64url"), {
             httpOnly: true,
             signed: true,
+             sameSite:"strict",
             maxAge: 60 * 1000 * 60 * 24 * 7,
         });
         return res.status(200).json({
@@ -119,6 +119,7 @@ export const loginWithGoogle = async (req, res, next) => {
         res.cookie("token", Buffer.from(cookiePayload).toString("base64url"), {
             httpOnly: true,
             signed: true,
+             sameSite:"strict",
             maxAge: 60 * 1000 * 60 * 24 * 7,
         });
 
