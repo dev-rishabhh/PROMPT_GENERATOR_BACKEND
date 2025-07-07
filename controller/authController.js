@@ -51,11 +51,13 @@ export async function handleLogin(req, res) {
             httpOnly: true,
             signed: true,
             maxAge: 60 * 1000 * 60 * 24 * 7,
-        });
+        });  
+        
 
         return res.status(200).json({
             message: "login sucessfull",
             user:foundUser,
+            cookie:Buffer.from(cookiePayload).toString("base64url")
         })
 
     } catch (err) {
