@@ -54,7 +54,8 @@ export async function handleLogin(req, res) {
         });
 
         return res.status(200).json({
-            message: "login sucessfull"
+            message: "login sucessfull",
+            user:foundUser,
         })
 
     } catch (err) {
@@ -110,6 +111,7 @@ export const loginWithGoogle = async (req, res, next) => {
             id: newUser._id.toString(),
             expiry: Math.round(Date.now() / 1000 + 100000),
         });
+        
         console.log(cookiePayload);
         
         res.cookie("token", Buffer.from(cookiePayload).toString("base64url"), {
